@@ -1,0 +1,18 @@
+interface UniswapV2Exchange { /* ... */ }
+
+contract UniswapV2SwapNotify is UniswapV2Swap {
+
+    event SwapCompleted(
+        address indexed buyer,
+        address indexed tokenIn, 
+        address indexed tokenOut,
+        uint256 amountIn,
+        uint256 amountOut
+    );
+    
+    function swap(/* ... */) external {
+        // ...
+        emit SwapCompleted(msg.sender, token0, token1, amount, received); 
+    }
+
+}
